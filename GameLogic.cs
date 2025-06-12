@@ -22,15 +22,13 @@ namespace Ex05_OriCohen_207008590_AlonZylberberg_315853739
 
         internal enum eFeedback
         {
-            None,                       // No match for this position
-            CorrectColorWrongPosition,  // Colour exists elsewhere in the secret
-            CorrectPosition             // Exact match: colour & position
+            None,
+            CorrectColorWrongPosition,
+            CorrectPosition
         }
 
-        private int k_SequenceLengthMax = 4;
-
+        private int m_SequenceLengthMax = 4;
         private static readonly Random sr_Random = new Random();
-
         private readonly eColor[] r_Secret;
         private bool m_HasWon;
 
@@ -42,14 +40,15 @@ namespace Ex05_OriCohen_207008590_AlonZylberberg_315853739
 
         int SequenceLength
         {
-            get { return k_SequenceLengthMax; }
+            get { return m_SequenceLengthMax; }
             set
             {
                 if (value < 1 || value > 10)
                 {
                     throw new ArgumentOutOfRangeException(nameof(value), "Sequence length must be between 1 and 10.");
                 }
-                k_SequenceLengthMax = value;
+
+                m_SequenceLengthMax = value;
             }
         }
 
@@ -60,9 +59,9 @@ namespace Ex05_OriCohen_207008590_AlonZylberberg_315853739
 
         private eColor[] generateSecret()
         {
-            eColor[] secret = new eColor[k_SequenceLengthMax];
+            eColor[] secret = new eColor[m_SequenceLengthMax];
 
-            for (int i = 0; i < k_SequenceLengthMax; i++)
+            for (int i = 0; i < m_SequenceLengthMax; i++)
             {
                 eColor candidate;
                 bool isDuplicate;
@@ -71,8 +70,7 @@ namespace Ex05_OriCohen_207008590_AlonZylberberg_315853739
                 {
                     candidate = (eColor)sr_Random.Next(Enum.GetValues(typeof(eColor)).Length);
                     isDuplicate = secret.Take(i).Contains(candidate);
-                }
-                while (isDuplicate);
+                } while (isDuplicate);
 
                 secret[i] = candidate;
             }
@@ -80,74 +78,18 @@ namespace Ex05_OriCohen_207008590_AlonZylberberg_315853739
             return secret;
         }
 
-        public int getCorrectLettersInPosition(string i_GuessFromUser)
+        public eFeedback[] GetGradeByGuess(eColor[] i_GuessFromUser)
         {
-            int numCorrectLetters = 0;
-
-            for (int i = 0; i < k_SequenceLengthMax; i++)
+            if (i_GuessFromUser == null || i_GuessFromUser.Length != m_SequenceLengthMax)
             {
-                if ((char)r_Secret[i] == i_GuessFromUser[i])
-                {
-                    numCorrectLetters++;
-                }
+                throw new ArgumentException($"Guess must have exactly {m_SequenceLengthMax} colours.");
             }
 
-            if (numCorrectLetters == k_SequenceLengthMax)
-            {
-                m_HasWon = true;
-            }
+            eFeedback[] feedback = new eFeedback[m_SequenceLengthMax];
+            bool[] matchedInSecret = new bool[m_SequenceLengthMax];
+            bool[] matchedInGuess = new bool[m_SequenceLengthMax];
 
-            return numCorrectLetters;
-        }
-
-        public int getCorrectLettersInWrongPosition(string i_GuessFromUser)
-        {
-            int countLettersInBadPosition = 0;
-            bool[] matchedInSecret = new bool[k_SequenceLengthMax];
-            bool[] matchedInGuess = new bool[k_SequenceLengthMax];
-
-            for (int i = 0; i < k_SequenceLengthMax; i++)
-            {
-                if ((char)r_Secret[i] == i_GuessFromUser[i])
-                {
-                    matchedInSecret[i] = true;
-                    matchedInGuess[i] = true;
-                }
-            }
-
-            for (int i = 0; i < k_SequenceLengthMax; i++)
-            {
-                if (matchedInGuess[i])
-                {
-                    continue;
-                }
-
-                for (int j = 0; j < k_SequenceLengthMax; j++)
-                {
-                    if (!matchedInSecret[j] && i_GuessFromUser[i] == (char)r_Secret[j])
-                    {
-                        countLettersInBadPosition++;
-                        matchedInSecret[j] = true;
-                        break;
-                    }
-                }
-            }
-
-            return countLettersInBadPosition;
-        }
-
-        public eFeedback[] getGradeByGuess(eColor[] i_GuessFromUser)
-        {
-            if (i_GuessFromUser == null || i_GuessFromUser.Length != k_SequenceLengthMax)
-            {
-                throw new ArgumentException($"Guess must have exactly {k_SequenceLengthMax} colours.");
-            }
-
-            eFeedback[] feedback = new eFeedback[k_SequenceLengthMax];
-            bool[] matchedInSecret = new bool[k_SequenceLengthMax];
-            bool[] matchedInGuess = new bool[k_SequenceLengthMax];
-
-            for (int i = 0; i < k_SequenceLengthMax; i++)
+            for (int i = 0; i < m_SequenceLengthMax; i++)
             {
                 if (i_GuessFromUser[i] == r_Secret[i])
                 {
@@ -157,14 +99,14 @@ namespace Ex05_OriCohen_207008590_AlonZylberberg_315853739
                 }
             }
 
-            for (int i = 0; i < k_SequenceLengthMax; i++)
+            for (int i = 0; i < m_SequenceLengthMax; i++)
             {
                 if (matchedInGuess[i])
                 {
                     continue;
                 }
 
-                for (int j = 0; j < k_SequenceLengthMax; j++)
+                for (int j = 0; j < m_SequenceLengthMax; j++)
                 {
                     if (!matchedInSecret[j] && i_GuessFromUser[i] == r_Secret[j])
                     {
@@ -182,7 +124,6 @@ namespace Ex05_OriCohen_207008590_AlonZylberberg_315853739
 
             return feedback;
         }
-
 
         public bool GetDidUserWin()
         {

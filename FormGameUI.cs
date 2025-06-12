@@ -12,7 +12,7 @@ namespace Ex05_OriCohen_207008590_AlonZylberberg_315853739
         private const int k_SlotSize = 80;
         private const int k_SlotGap = 10;
         private const int k_SubmitButtonWidth = 60;
-        private const int k_FeedbackSize = 30;
+        private const int k_FeedbackSize = 38;
 
 
         private readonly int r_NumOfCols;
@@ -52,7 +52,7 @@ namespace Ex05_OriCohen_207008590_AlonZylberberg_315853739
 
             int totalWidth = r_NumOfCols * (k_SlotSize + k_SlotGap) + k_SlotGap
                                                                     + k_SubmitButtonWidth + k_SlotGap
-                                                                    + 2 * k_FeedbackSize + 2 * 28 + 40;
+                                                                    + 2 * k_FeedbackSize + 2 * 28;
 
             int totalHeight = (r_NumOfRows + 2) * (k_SlotSize + k_SlotGap);
 
@@ -69,13 +69,12 @@ namespace Ex05_OriCohen_207008590_AlonZylberberg_315853739
 
         private void intializeSecret()
         {
-            int top = k_SlotGap - 10;
             for (int col = 0; col < r_NumOfCols; col++)
             {
                 Button button = new Button();
                 button.Size = new Size(k_SlotSize, k_SlotSize);
                 button.Left = col * (k_SlotSize + k_SlotGap) + k_SlotGap;
-                button.Top = top;
+                button.Top = k_SlotGap;
                 button.BackColor = Color.Black;
                 button.Enabled = false;
                 button.Font = new Font("Arial", 14, FontStyle.Bold);
@@ -89,7 +88,6 @@ namespace Ex05_OriCohen_207008590_AlonZylberberg_315853739
         {
             int top = (i_Row + 1) * (k_SlotSize + k_SlotGap) + k_SlotGap;
 
-            // כפתורי הסלוטים בגודל k_SlotSize x k_SlotSize
             for (int col = 0; col < r_NumOfCols; col++)
             {
                 Button slot = new Button();
@@ -173,13 +171,13 @@ namespace Ex05_OriCohen_207008590_AlonZylberberg_315853739
                 guess[i] = toEnum(r_SlotButtons[row, i].BackColor);
             }
 
-            GameLogic.eFeedback[] feedback = r_GameLogic.getGradeByGuess(guess);
+            GameLogic.eFeedback[] feedback = r_GameLogic.GetGradeByGuess(guess);
 
             for (int i = 0; i < feedback.Length; i++)
             {
                 r_FeedbackButtons[row, i].BackColor = feedback[i] == GameLogic.eFeedback.CorrectPosition ? Color.Black :
-                                                       feedback[i] == GameLogic.eFeedback.CorrectColorWrongPosition ? Color.Yellow :
-                                                       Color.Transparent;
+                    feedback[i] == GameLogic.eFeedback.CorrectColorWrongPosition ? Color.Yellow :
+                    Color.Transparent;
             }
 
             lockRow(row);
@@ -200,28 +198,31 @@ namespace Ex05_OriCohen_207008590_AlonZylberberg_315853739
 
         private bool isColorUsed(int i_Row, Color i_Color)
         {
+            bool returnValue = false;
             for (int i = 0; i < r_NumOfCols; i++)
             {
                 if (r_SlotButtons[i_Row, i].BackColor == i_Color)
                 {
-                    return true;
+                    returnValue = true;
                 }
             }
 
-            return false;
+            return returnValue;
         }
 
         private bool isRowFilled(int i_Row)
         {
+            bool returnValue = true;
+
             for (int i = 0; i < r_NumOfCols; i++)
             {
                 if (r_SlotButtons[i_Row, i].BackColor == Color.White)
                 {
-                    return false;
+                    returnValue = false;
                 }
             }
 
-            return true;
+            return returnValue;
         }
 
         private void lockRow(int i_Row)
@@ -242,22 +243,31 @@ namespace Ex05_OriCohen_207008590_AlonZylberberg_315853739
             }
         }
 
-        private static GameLogic.eColor toEnum(Color color)
+        private static GameLogic.eColor toEnum(Color i_Color)
         {
-            if (color == Color.Red) return GameLogic.eColor.A;
-            if (color == Color.Blue) return GameLogic.eColor.B;
-            if (color == Color.Green) return GameLogic.eColor.C;
-            if (color == Color.Yellow) return GameLogic.eColor.D;
-            if (color == Color.Purple) return GameLogic.eColor.E;
-            if (color == Color.Orange) return GameLogic.eColor.F;
-            if (color == Color.Brown) return GameLogic.eColor.G;
-            if (color == Color.Pink) return GameLogic.eColor.H;
-            throw new ArgumentException("Unsupported color");
+            GameLogic.eColor returnValue = GameLogic.eColor.A;
+            bool found = true;
+
+            if (i_Color == Color.Red) returnValue = GameLogic.eColor.A;
+            else if (i_Color == Color.Blue) returnValue = GameLogic.eColor.B;
+            else if (i_Color == Color.Green) returnValue = GameLogic.eColor.C;
+            else if (i_Color == Color.Yellow) returnValue = GameLogic.eColor.D;
+            else if (i_Color == Color.Purple) returnValue = GameLogic.eColor.E;
+            else if (i_Color == Color.Orange) returnValue = GameLogic.eColor.F;
+            else if (i_Color == Color.Brown) returnValue = GameLogic.eColor.G;
+            else if (i_Color == Color.Pink) returnValue = GameLogic.eColor.H;
+            else found = false;
+            if (!found)
+            {
+                throw new ArgumentException("Unsupported color");
+            }
+
+            return returnValue;
         }
 
-        private Color mapColor(GameLogic.eColor color)
+        private Color mapColor(GameLogic.eColor i_Color)
         {
-            switch (color)
+            switch (i_Color)
             {
                 case GameLogic.eColor.A: return Color.Red;
                 case GameLogic.eColor.B: return Color.Blue;
@@ -270,6 +280,7 @@ namespace Ex05_OriCohen_207008590_AlonZylberberg_315853739
                 default: return Color.Black;
             }
         }
+
 
         private void revealGuess()
         {
