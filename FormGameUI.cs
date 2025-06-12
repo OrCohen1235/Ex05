@@ -10,9 +10,9 @@ namespace Ex05_OriCohen_207008590_AlonZylberberg_315853739
     public class FormGameUI : Form
     {
         private const int k_SlotSize = 80;
-        private const int k_SlotGap = 10;
+        private const int k_SlotGap = 10; 
         private const int k_SubmitButtonWidth = 60;
-        private const int k_FeedbackSize = 30;
+        private const int k_FeedbackSize = 38;
 
 
         private readonly int r_NumOfCols;
@@ -52,7 +52,7 @@ namespace Ex05_OriCohen_207008590_AlonZylberberg_315853739
 
             int totalWidth = r_NumOfCols * (k_SlotSize + k_SlotGap) + k_SlotGap
                                                                     + k_SubmitButtonWidth + k_SlotGap
-                                                                    + 2 * k_FeedbackSize + 2 * 28 + 40;
+                                                                    + 2 * k_FeedbackSize + 2 * 28;
 
             int totalHeight = (r_NumOfRows + 2) * (k_SlotSize + k_SlotGap);
 
@@ -69,13 +69,12 @@ namespace Ex05_OriCohen_207008590_AlonZylberberg_315853739
 
         private void intializeSecret()
         {
-            int top = k_SlotGap - 10;
             for (int col = 0; col < r_NumOfCols; col++)
             {
                 Button button = new Button();
                 button.Size = new Size(k_SlotSize, k_SlotSize);
                 button.Left = col * (k_SlotSize + k_SlotGap) + k_SlotGap;
-                button.Top = top;
+                button.Top = k_SlotGap;
                 button.BackColor = Color.Black;
                 button.Enabled = false;
                 button.Font = new Font("Arial", 14, FontStyle.Bold);
@@ -89,7 +88,6 @@ namespace Ex05_OriCohen_207008590_AlonZylberberg_315853739
         {
             int top = (i_Row + 1) * (k_SlotSize + k_SlotGap) + k_SlotGap;
 
-            // כפתורי הסלוטים בגודל k_SlotSize x k_SlotSize
             for (int col = 0; col < r_NumOfCols; col++)
             {
                 Button slot = new Button();
