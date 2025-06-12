@@ -83,6 +83,7 @@ namespace B25_Ex05_OriCohen_207008590_AlonZylberberg_315853739
             {
                 ColorChosenAction(chosenColor);
             }
+
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

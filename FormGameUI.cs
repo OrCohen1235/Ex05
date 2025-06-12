@@ -10,7 +10,7 @@ namespace Ex05_OriCohen_207008590_AlonZylberberg_315853739
     public class FormGameUI : Form
     {
         private const int k_SlotSize = 80;
-        private const int k_SlotGap = 10; 
+        private const int k_SlotGap = 10;
         private const int k_SubmitButtonWidth = 60;
         private const int k_FeedbackSize = 38;
 
@@ -176,8 +176,8 @@ namespace Ex05_OriCohen_207008590_AlonZylberberg_315853739
             for (int i = 0; i < feedback.Length; i++)
             {
                 r_FeedbackButtons[row, i].BackColor = feedback[i] == GameLogic.eFeedback.CorrectPosition ? Color.Black :
-                                                       feedback[i] == GameLogic.eFeedback.CorrectColorWrongPosition ? Color.Yellow :
-                                                       Color.Transparent;
+                    feedback[i] == GameLogic.eFeedback.CorrectColorWrongPosition ? Color.Yellow :
+                    Color.Transparent;
             }
 
             lockRow(row);
@@ -198,28 +198,31 @@ namespace Ex05_OriCohen_207008590_AlonZylberberg_315853739
 
         private bool isColorUsed(int i_Row, Color i_Color)
         {
+            bool returnValue = false;
             for (int i = 0; i < r_NumOfCols; i++)
             {
                 if (r_SlotButtons[i_Row, i].BackColor == i_Color)
                 {
-                    return true;
+                    returnValue = true;
                 }
             }
 
-            return false;
+            return returnValue;
         }
 
         private bool isRowFilled(int i_Row)
         {
+            bool returnValue = true;
+
             for (int i = 0; i < r_NumOfCols; i++)
             {
                 if (r_SlotButtons[i_Row, i].BackColor == Color.White)
                 {
-                    return false;
+                    returnValue = false;
                 }
             }
 
-            return true;
+            return returnValue;
         }
 
         private void lockRow(int i_Row)
@@ -244,7 +247,7 @@ namespace Ex05_OriCohen_207008590_AlonZylberberg_315853739
         {
             GameLogic.eColor returnValue = GameLogic.eColor.A;
             bool found = true;
-            
+
             if (i_Color == Color.Red) returnValue = GameLogic.eColor.A;
             else if (i_Color == Color.Blue) returnValue = GameLogic.eColor.B;
             else if (i_Color == Color.Green) returnValue = GameLogic.eColor.C;
@@ -256,7 +259,7 @@ namespace Ex05_OriCohen_207008590_AlonZylberberg_315853739
             else found = false;
             if (!found)
             {
-            throw new ArgumentException("Unsupported color");
+                throw new ArgumentException("Unsupported color");
             }
 
             return returnValue;
