@@ -296,6 +296,6 @@ namespace Ex05_OriCohen_207008590_AlonZylberberg_315853739
             string message = won ? "You cracked the code!" : "Out of guesses. Check Secret ON TOP: ";
             MessageBox.Show(message);
             revealGuess();
-z        }
+        }
     }
 }
