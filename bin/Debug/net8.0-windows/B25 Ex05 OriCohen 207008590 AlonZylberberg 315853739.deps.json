@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739/1.0.0": {
+        "runtime": {
+          "B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

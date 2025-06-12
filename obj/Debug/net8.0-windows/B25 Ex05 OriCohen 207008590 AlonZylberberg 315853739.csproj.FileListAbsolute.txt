@@ -1,0 +1,16 @@
+C:\Users\orcoh\OneDrive\שולחן העבודה\B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739\obj\Debug\net8.0-windows\B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\orcoh\OneDrive\שולחן העבודה\B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739\obj\Debug\net8.0-windows\B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739.AssemblyInfoInputs.cache
+C:\Users\orcoh\OneDrive\שולחן העבודה\B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739\obj\Debug\net8.0-windows\B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739.AssemblyInfo.cs
+C:\Users\orcoh\OneDrive\שולחן העבודה\B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739\obj\Debug\net8.0-windows\B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739.csproj.CoreCompileInputs.cache
+C:\Users\orcoh\OneDrive\שולחן העבודה\B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739\bin\Debug\net8.0-windows\B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739.exe
+C:\Users\orcoh\OneDrive\שולחן העבודה\B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739\bin\Debug\net8.0-windows\B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739.deps.json
+C:\Users\orcoh\OneDrive\שולחן העבודה\B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739\bin\Debug\net8.0-windows\B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739.runtimeconfig.json
+C:\Users\orcoh\OneDrive\שולחן העבודה\B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739\bin\Debug\net8.0-windows\B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739.dll
+C:\Users\orcoh\OneDrive\שולחן העבודה\B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739\bin\Debug\net8.0-windows\B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739.pdb
+C:\Users\orcoh\OneDrive\שולחן העבודה\B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739\obj\Debug\net8.0-windows\B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739.dll
+C:\Users\orcoh\OneDrive\שולחן העבודה\B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739\obj\Debug\net8.0-windows\refint\B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739.dll
+C:\Users\orcoh\OneDrive\שולחן העבודה\B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739\obj\Debug\net8.0-windows\B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739.pdb
+C:\Users\orcoh\OneDrive\שולחן העבודה\B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739\obj\Debug\net8.0-windows\B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739.genruntimeconfig.cache
+C:\Users\orcoh\OneDrive\שולחן העבודה\B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739\obj\Debug\net8.0-windows\ref\B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739.dll
+C:\Users\orcoh\OneDrive\שולחן העבודה\B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739\obj\Debug\net8.0-windows\Ex05_OriCohen_207008590_AlonZylberberg_315853739.FormGameUI.resources
+C:\Users\orcoh\OneDrive\שולחן העבודה\B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739\obj\Debug\net8.0-windows\B25 Ex05 OriCohen 207008590 AlonZylberberg 315853739.csproj.GenerateResource.cache
