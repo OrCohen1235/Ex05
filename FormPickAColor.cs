@@ -10,7 +10,7 @@ namespace B25_Ex05_OriCohen_207008590_AlonZylberberg_315853739
         private List<Button> m_ColorButtons;
         private Color m_ChosenColor;
 
-        private System.ComponentModel.IContainer components = null;
+        private System.ComponentModel.IContainer m_Components = null;
 
         public Color ChosenColor
         {
@@ -26,7 +26,7 @@ namespace B25_Ex05_OriCohen_207008590_AlonZylberberg_315853739
 
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.m_Components = new System.ComponentModel.Container();
             this.AutoScaleMode = AutoScaleMode.Font;
             this.Text = "Choose Color";
             this.StartPosition = FormStartPosition.CenterScreen;

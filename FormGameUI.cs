@@ -173,7 +173,7 @@ namespace Ex05_OriCohen_207008590_AlonZylberberg_315853739
                 guess[i] = toEnum(r_SlotButtons[row, i].BackColor);
             }
 
-            GameLogic.eFeedback[] feedback = r_GameLogic.getGradeByGuess(guess);
+            GameLogic.eFeedback[] feedback = r_GameLogic.GetGradeByGuess(guess);
 
             for (int i = 0; i < feedback.Length; i++)
             {
@@ -242,22 +242,31 @@ namespace Ex05_OriCohen_207008590_AlonZylberberg_315853739
             }
         }
 
-        private static GameLogic.eColor toEnum(Color color)
+        private static GameLogic.eColor toEnum(Color i_Color)
         {
-            if (color == Color.Red) return GameLogic.eColor.A;
-            if (color == Color.Blue) return GameLogic.eColor.B;
-            if (color == Color.Green) return GameLogic.eColor.C;
-            if (color == Color.Yellow) return GameLogic.eColor.D;
-            if (color == Color.Purple) return GameLogic.eColor.E;
-            if (color == Color.Orange) return GameLogic.eColor.F;
-            if (color == Color.Brown) return GameLogic.eColor.G;
-            if (color == Color.Pink) return GameLogic.eColor.H;
+            GameLogic.eColor returnValue = GameLogic.eColor.A;
+            bool found = true;
+            
+            if (i_Color == Color.Red) returnValue = GameLogic.eColor.A;
+            else if (i_Color == Color.Blue) returnValue = GameLogic.eColor.B;
+            else if (i_Color == Color.Green) returnValue = GameLogic.eColor.C;
+            else if (i_Color == Color.Yellow) returnValue = GameLogic.eColor.D;
+            else if (i_Color == Color.Purple) returnValue = GameLogic.eColor.E;
+            else if (i_Color == Color.Orange) returnValue = GameLogic.eColor.F;
+            else if (i_Color == Color.Brown) returnValue = GameLogic.eColor.G;
+            else if (i_Color == Color.Pink) returnValue = GameLogic.eColor.H;
+            else found = false;
+            if (!found)
+            {
             throw new ArgumentException("Unsupported color");
+            }
+
+            return returnValue;
         }
 
-        private Color mapColor(GameLogic.eColor color)
+        private Color mapColor(GameLogic.eColor i_Color)
         {
-            switch (color)
+            switch (i_Color)
             {
                 case GameLogic.eColor.A: return Color.Red;
                 case GameLogic.eColor.B: return Color.Blue;
@@ -270,6 +279,7 @@ namespace Ex05_OriCohen_207008590_AlonZylberberg_315853739
                 default: return Color.Black;
             }
         }
+
 
         private void revealGuess()
         {
@@ -286,6 +296,6 @@ namespace Ex05_OriCohen_207008590_AlonZylberberg_315853739
             string message = won ? "You cracked the code!" : "Out of guesses. Check Secret ON TOP: ";
             MessageBox.Show(message);
             revealGuess();
-        }
+z        }
     }
 }

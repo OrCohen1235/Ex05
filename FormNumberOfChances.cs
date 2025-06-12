@@ -10,7 +10,7 @@ namespace B25_Ex05_OriCohen_207008590_AlonZylberberg_315853739
         private Button buttonNumberOfChances;
         private const int k_MinimumNumberOfChances = 4;
         private const int k_MaximumNumberOfChances = 10;
-        private int countClickers { get; set; } = k_MinimumNumberOfChances;
+        private int CountClickers { get; set; } = k_MinimumNumberOfChances;
 
         public FormNumberOfChances()
         {
@@ -34,7 +34,7 @@ namespace B25_Ex05_OriCohen_207008590_AlonZylberberg_315853739
             this.buttonNumberOfChances.Location = new System.Drawing.Point(40, 20);
             this.buttonNumberOfChances.Name = "buttonNumberOfChances";
             this.buttonNumberOfChances.Size = new System.Drawing.Size(400, 40);
-            this.buttonNumberOfChances.Text = $"Number Of Chances: {countClickers}";
+            this.buttonNumberOfChances.Text = $"Number Of Chances: {CountClickers}";
             this.buttonNumberOfChances.UseVisualStyleBackColor = true;
             this.buttonNumberOfChances.Click += new EventHandler(this.buttonNumberOfChances_Click);
 
@@ -48,7 +48,7 @@ namespace B25_Ex05_OriCohen_207008590_AlonZylberberg_315853739
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
-            FormGameUI formGameUI = new FormGameUI(countClickers);
+            FormGameUI formGameUI = new FormGameUI(CountClickers);
             this.Hide();
             formGameUI.ShowDialog();
             this.Show();
@@ -57,12 +57,12 @@ namespace B25_Ex05_OriCohen_207008590_AlonZylberberg_315853739
 
         private void buttonNumberOfChances_Click(object sender, EventArgs e)
         {
-            countClickers++;
-            if (countClickers > k_MaximumNumberOfChances)
+            CountClickers++;
+            if (CountClickers > k_MaximumNumberOfChances)
             {
-                countClickers = k_MinimumNumberOfChances;
+                CountClickers = k_MinimumNumberOfChances;
             }
-            buttonNumberOfChances.Text = $"Number Of Chances: {countClickers}";
+            buttonNumberOfChances.Text = $"Number Of Chances: {CountClickers}";
         }
     }
 }
