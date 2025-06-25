@@ -41,6 +41,9 @@ namespace B25_Ex05_OriCohen_207008590_AlonZylberberg_315853739
             this.Controls.Add(this.buttonNumberOfChances);
             this.Name = "FormNumberOfChances";
             this.Text = "Bool Pgia";
+
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
         }
 
         private void buttonStart_Click(object sender, EventArgs e)
